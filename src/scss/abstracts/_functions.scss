@@ -1,0 +1,14 @@
+@use 'variables' as *;
+
+// PX to REM
+@function toRem($pixel) {
+    @if (unitless($pixel)) {
+        $pixel: $pixel * 1px;
+    }
+
+    @if (unitless($base-size)) {
+        $base-size: $base-size * 1px
+    }
+
+    @return #{$pixel / $base-size}rem;
+}
